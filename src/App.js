@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
+import { useDispatch } from 'react-redux';
 
-function App() {
+import { getMemes } from './actions/memes';
+import cheems from './img/cheems.png';
+import Form from './components/Form/Form.js';
+import Memes from './components/Memes/Memes.js';
+import useStyles from './styles'
+
+const App = () => {
+  const classes = useStyles();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMemes());
+  }, [dispatch])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxWidth="lg">
+      <div className={classes.appBar}>
+        <img className={classes.imageLeft} src={cheems} alt="logo" height="60" />
+        <Typography className={classes.heading} variant="h2" align="center">Meme Stream</Typography>
+        <img className={classes.imageRight} src={cheems} alt="logo" height="60" />
+      </div>
+
+      <Grow in>
+        <Container>
+          <Grid container className={classes.mainContainer} justify="space-between" alignItems="stretch" spacing={3}>
+
+            <Grid item xs={12} sm={7}>
+              <Memes />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <Form />
+            </Grid>
+          </Grid>
+        </Container>
+      </Grow>
+
+    </Container>
   );
 }
 
