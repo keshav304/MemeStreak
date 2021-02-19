@@ -33,7 +33,7 @@ const Meme = ({ meme }) => {
                             <Typography variant="p" >{moment(meme.createdAt).fromNow()}</Typography>
                         </div>
                         <div className={classes.details}>
-                            <Typography variant="body2" color="textSecondary" component="h2">{meme.tags.map((tag) => `#${tag} `)}</Typography>
+                            <Typography variant="body2" color="textSecondary" component="h2">{meme.tags && meme.tags.map((tag) => `#${tag} `)}</Typography>
                         </div>
 
                     </CardContent>
