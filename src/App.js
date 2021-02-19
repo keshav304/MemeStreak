@@ -20,7 +20,7 @@ const App = () => {
     <Container maxWidth="lg">
       <div className={classes.appBar}>
         <img className={classes.imageLeft} src={cheems} alt="logo" height="60" />
-        <Typography className={classes.heading} variant="h2" align="center">Meme Stream</Typography>
+        <Typography className={classes.heading} variant="h2" align="center">MemeStreak</Typography>
         <img className={classes.imageRight} src={cheems} alt="logo" height="60" />
       </div>
 
